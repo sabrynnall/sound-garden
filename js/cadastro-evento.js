@@ -5,7 +5,7 @@ const inputDescricao = document.querySelector('#descricao');
 const inputData = document.querySelector('#data');
 const inputLotacao = document.querySelector('#lotacao');
 const form = document.querySelector('#form-evento');
-const resultado = document.querySelector('.resultado')
+const resultado = document.querySelector('.resultado');
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 // informando que cada campo da api irá receber os valores dos inputs
 form.onsubmit = async (evento) => {
@@ -52,4 +52,3 @@ form.onsubmit = async (evento) => {
         }, 3000)
     }
 }
-

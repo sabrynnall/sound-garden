@@ -48,7 +48,7 @@ window.onload = async () => {
             acoesEvento.appendChild(editarEvento);
             acoesEvento.appendChild(excluirEvento);
 
-            numeroEvento.innerText = i+1;
+            numeroEvento.innerText = i + 1;
 
             dataEvento.innerText = new Date(conteudoResposta[i].scheduled).toLocaleString().substr(0, 16);
             tituloEvento.innerText = conteudoResposta[i].name;
@@ -58,6 +58,15 @@ window.onload = async () => {
             excluirEvento.innerText = 'excluir';
 
             campoEventos.appendChild(campoEvento)
+
+            function acessoId (id) {
+                if (id == conteudoResposta[i]._id) {
+                    editarEvento.setAttribute('href', `editar-evento.html?id=${id}`);
+                } 
+                return console.log(acessoId)
+            }
+            acessoId(conteudoResposta[i]._id);
+
         }
 
     } catch (error) {
