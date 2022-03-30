@@ -115,24 +115,26 @@
             <div id="form-ingresso">
             <form id="form-reservar-ingresso" action="#" method="post">
                 <div class="input">
-                <input type="text" required placeholder="Nome" name="nome">
+                <input type="text" required placeholder="Nome" name="nome" id="reserva-nome">
                 </div>
                 
                 <div class="input">
-                <input type="email" required placeholder="e-mail" name="email">
+                <input type="email" required placeholder="e-mail" name="email" id="reserva-email">
                 </div>
 
             </form>
             </div>
 
             <div id="btn-reservar">
-                <a href="#" id="link-reservar">reservar</a>
+                <button type="submit" id="link-reservar"> reservar</button>
+                <span class="resultado" style="display: none;"></span>
             </div>
 
         </div>
     </div>
 </body>
 <script src="./js/modal.js"></script>
+<script src="./js/reservar-ingresso.js"></script>
 
 
 </html>
