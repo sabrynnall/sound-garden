@@ -1,11 +1,11 @@
 const inputNome = document.querySelector('#nome');
-const inputPoster = document.querySelector('#poster');
+const inputBanner = document.querySelector('#banner');
 const inputAtracoes = document.querySelector('#atracoes');
 const inputDescricao = document.querySelector('#descricao');
 const inputData = document.querySelector('#data');
 const inputLotacao = document.querySelector('#lotacao');
 const form = document.querySelector('#form-evento');
-const toast = document.querySelector('.toast-body')
+const resultado = document.querySelector('.resultado')
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 // informando que cada campo da api irá receber os valores dos inputs
 form.onsubmit = async (evento) => {
@@ -15,7 +15,7 @@ form.onsubmit = async (evento) => {
     try {
         const novoCadastro = {
             name: inputNome.value,
-            poster: inputPoster.value,
+            poster: inputBanner.value,
             attractions: inputAtracoes.value.split(','),
             description: inputDescricao.value,
             scheduled: new Date(inputData.value).toISOString(),
@@ -35,20 +35,20 @@ form.onsubmit = async (evento) => {
         await fetch(`${BASE_URL}/events`, opcoes);
 
         let mensagemSucesso = '✅ Cadastro efetuado com sucesso!';
-        toast.innerHTML = mensagemSucesso;
-        toast.style.display = "block";
+        resultado.innerHTML = mensagemSucesso;
+        resultado.style.display = "block";
 
         // tratando o erro
     } catch (error) {
         let mensagemErro = '🟥 Não foi possível efetuar o cadastro!';
-        toast.innerHTML = mensagemErro;
-        toast.style.display = "block";
+        resultado.innerHTML = mensagemErro;
+        resultado.style.display = "block";
 
         console.log(error)
     } 
     finally {
         setTimeout(() => {
-            toast.style.display = "none";
+            resultado.style.display = "none";
         }, 3000)
     }
 }
