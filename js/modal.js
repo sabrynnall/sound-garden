@@ -10,6 +10,14 @@ function iniciaModal(modalId) {
     }
 }
 
-const reservarIngresso = document.querySelectorAll('#btn-abrirModal');
-//reservarIngresso.addEventListener('click', () => iniciaModal('abrir-modal'))
+
+const toArray = Array.from(document.querySelectorAll('#btn-abrirModal'));
+
+toArray.forEach( item =>{
+    item.addEventListener('click', () => {
+        iniciaModal('abrir-modal')
+    })
+})
+
+
 
