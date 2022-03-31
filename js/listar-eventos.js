@@ -2,6 +2,18 @@ const campoEventos = document.querySelector('#campo-eventos');
 const botaoEditar = document.querySelector('.btn btn-secondary');
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
+function inserirId (id, editarEvento) {
+    editarEvento.setAttribute('href', `editar-evento.html?id=${id}`);
+}
+
+function formatarData (data) {
+    const dataHora = data.split('T');
+    const dataF = dataHora[0].split('-').reverse();
+    const novaData = dataF.join('/');
+    const horaF = dataHora[1].slice(0, 5);
+
+    return `${novaData} ${horaF}`
+}
 
 window.onload = async () => {
 
@@ -16,6 +28,7 @@ window.onload = async () => {
         const resposta = await fetch(`${BASE_URL}/events`, opcoes);
 
         const conteudoResposta = await resposta.json();
+
 
         for (let i = 0; i < conteudoResposta.length; i++) {
 
@@ -50,7 +63,10 @@ window.onload = async () => {
 
             numeroEvento.innerText = i + 1;
 
-            dataEvento.innerText = new Date(conteudoResposta[i].scheduled).toLocaleString().substr(0, 16);
+            const data = conteudoResposta[i].scheduled;
+            const dataFormatada = formatarData(data);
+
+            dataEvento.innerText = dataFormatada;
             tituloEvento.innerText = conteudoResposta[i].name;
             atracoesEvento.innerText = conteudoResposta[i].attractions;
             reservasEvento.innerText = 'ver reservas';
@@ -59,13 +75,7 @@ window.onload = async () => {
 
             campoEventos.appendChild(campoEvento)
 
-            function acessoId (id) {
-                if (id == conteudoResposta[i]._id) {
-                    editarEvento.setAttribute('href', `editar-evento.html?id=${id}`);
-                } 
-                return console.log(acessoId)
-            }
-            acessoId(conteudoResposta[i]._id);
+            inserirId(conteudoResposta[i]._id, editarEvento);
 
         }
 

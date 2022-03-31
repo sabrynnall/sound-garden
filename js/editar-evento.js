@@ -5,7 +5,7 @@ const inputDescricao = document.querySelector('#descricao');
 const inputData = document.querySelector('#data');
 const inputLotacao = document.querySelector('#lotacao');
 const form = document.querySelector('#form-evento');
-const resultado = document.querySelector('.resultado-body');
+const resultado = document.querySelector('.resultado');
 const botaoEditar = document.querySelector('.btn btn-secondary');
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
@@ -27,11 +27,13 @@ window.onload = async () => {
 
         const conteudoResposta = await resposta.json();
 
+        let data = conteudoResposta.scheduled;
+
         inputNome.value = conteudoResposta.name;
         inputBanner.value = conteudoResposta.poster;
         inputAtracoes.value = conteudoResposta.attractions;
         inputDescricao.value = conteudoResposta.description;
-        inputData.value = new Date(conteudoResposta.scheduled).toLocaleString().substr(0, 16);
+        inputData.value = data.split("").slice(0, 16).join("");
         inputLotacao.value = conteudoResposta.number_tickets;
 
     } catch (error) {
@@ -49,7 +51,7 @@ form.onsubmit = async (evento) => {
             poster: inputBanner.value,
             attractions: inputAtracoes.value.split(','),
             description: inputDescricao.value,
-//TODO            scheduled: new Date(inputData.value).toISOString(),
+            scheduled: inputData.value,
             number_tickets: inputLotacao.value
         };
 
@@ -63,7 +65,19 @@ form.onsubmit = async (evento) => {
 
         await fetch(`${BASE_URL}/events/${novoId}`, opcoes);
 
+        let mensagemSucesso = '✅ Evento atualizado com sucesso!';
+        resultado.innerHTML = mensagemSucesso;
+        resultado.style.display = "block";
+
     } catch (error) {
+        let mensagemErro = '🟥 Não foi possível efetuar a atualização!';
+        resultado.innerHTML = mensagemErro;
+        resultado.style.display = "block";
+
         console.log(error)
+    } finally {
+        setTimeout(() => {
+            resultado.style.display = "none";
+        }, 3000)
     }
 }
