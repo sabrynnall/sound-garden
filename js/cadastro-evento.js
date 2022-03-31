@@ -7,6 +7,7 @@ const inputLotacao = document.querySelector('#lotacao');
 const form = document.querySelector('#form-evento');
 const resultado = document.querySelector('.resultado');
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
+
 // informando que cada campo da api irá receber os valores dos inputs
 form.onsubmit = async (evento) => {
 
@@ -18,10 +19,12 @@ form.onsubmit = async (evento) => {
             poster: inputBanner.value,
             attractions: inputAtracoes.value.split(','),
             description: inputDescricao.value,
-            scheduled: new Date(inputData.value).toISOString(),
+            scheduled: inputData.value,
             number_tickets: inputLotacao.value
         };
-    
+
+        console.log(novoCadastro.scheduled)
+
         // informando o método utilizado e o formato a ser recebido (JSON)
         const opcoes = {
             method: 'POST',
@@ -45,8 +48,7 @@ form.onsubmit = async (evento) => {
         resultado.style.display = "block";
 
         console.log(error)
-    } 
-    finally {
+    } finally {
         setTimeout(() => {
             resultado.style.display = "none";
         }, 3000)
