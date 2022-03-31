@@ -14,7 +14,7 @@ form.onsubmit = async (evento) => {
             owner_name: inputNome.value,
             owner_email: inputEmail.value,
             number_tickets: 1,
-            event_id:"123"
+            event_id:""
             
         };
     
