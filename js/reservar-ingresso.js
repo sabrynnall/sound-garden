@@ -2,7 +2,8 @@ const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com/bookings';
 const inputNome = document.querySelector('#reserva-nome');
 const inputEmail = document.querySelector('#reserva-email');
 const form = document.querySelector("#form-ingresso");
-const resultado = document.querySelector('.resultado');
+const resultado = document.querySelector('#link-reservar');
+
 
 form.onsubmit = async (evento) => {
 
@@ -11,7 +12,9 @@ form.onsubmit = async (evento) => {
     try {
         const novoCadastro = {
             owner_name: inputNome.value,
-            owner_email: inputEmail.value
+            owner_email: inputEmail.value,
+            number_tickets: 1,
+            event_id:"123"
             
         };
     
@@ -25,25 +28,27 @@ form.onsubmit = async (evento) => {
         };
 
         // fazendo requisição na api para fazer uma reserva
-        await fetch(`${BASE_URL}/bookings`, opcoes);
+        await fetch(`${BASE_URL}`, opcoes);
 
-        let mensagemSucesso = '✅ Cadastro efetuado com sucesso!';
+        let mensagemSucesso = 'Sucesso!';
         resultado.innerHTML = mensagemSucesso;
-        resultado.style.display = "block";
+        resultado.style = 'background-color: green'
         
+
         console.log(mensagemSucesso)
 
         // tratando o erro
     } catch (error) {
-        let mensagemErro = '🟥 Não foi possível efetuar o cadastro!';
+        let mensagemErro = 'Erro';
         resultado.innerHTML = mensagemErro;
-        resultado.style.display = "block";
+        resultado.style = 'background-color: red'
 
         console.log(error)
     } 
     finally {
         setTimeout(() => {
-            resultado.style.display = "none";
+            resultado.innerHTML = "reservar";
+            resultado.style = 'background-color: #C2185B'
         }, 3000)
     }
 }

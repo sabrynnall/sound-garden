@@ -14,10 +14,12 @@ function iniciaModal(modalId) {
 const toArray = Array.from(document.querySelectorAll('#btn-abrirModal'));
 
 toArray.forEach( item =>{
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
         iniciaModal('abrir-modal')
     })
 })
+
 
 
 
