@@ -1,11 +1,12 @@
 const campoEventos = document.querySelector('#campo-eventos');
-const botaoEditar = document.querySelector('.btn btn-secondary');
 const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com';
 
-function inserirId (id, editarEvento) {
-    editarEvento.setAttribute('href', `editar-evento.html?id=${id}`);
-}
+// função para colocar o id na url
 
+function inserirId (id, elemento, nomeAcao) {
+    elemento.setAttribute('href', `${nomeAcao}.html?id=${id}`);
+}
+// formatando a data para uma melhor visualização na tela
 function formatarData (data) {
     const dataHora = data.split('T');
     const dataF = dataHora[0].split('-').reverse();
@@ -14,7 +15,7 @@ function formatarData (data) {
 
     return `${novaData} ${horaF}`
 }
-
+// mostrando cada evento existente no banco da api
 window.onload = async () => {
 
     try {
@@ -44,8 +45,6 @@ window.onload = async () => {
 
             numeroEvento.setAttribute('scope', 'row');
             reservasEvento.setAttribute('href', 'reservas.html');
-            editarEvento.setAttribute('href', 'editar-evento.html');
-            excluirEvento.setAttribute('href', 'excluir-evento.html');
 
             reservasEvento.setAttribute('class', 'btn btn-dark');
             editarEvento.setAttribute('class', 'btn btn-secondary');
@@ -75,8 +74,8 @@ window.onload = async () => {
 
             campoEventos.appendChild(campoEvento)
 
-            inserirId(conteudoResposta[i]._id, editarEvento);
-
+            inserirId(conteudoResposta[i]._id, excluirEvento, 'excluir-evento');
+            inserirId(conteudoResposta[i]._id, editarEvento, 'editar-evento');
         }
 
     } catch (error) {
