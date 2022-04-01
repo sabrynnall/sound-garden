@@ -92,11 +92,6 @@ footer nav ul li  {
         display: none;
     }
 
-    .img-responsive {
-        height: 100px;
-        max-width: none;
-    }
-
     #icone {
         display: block;
         cursor: pointer;
