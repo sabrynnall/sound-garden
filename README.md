@@ -42,7 +42,7 @@ Ao manipular a interface pode-se verificar inúmeras funcionalidades existentes 
 # Contatos
 
 Sabrynna Lourenço - [Linkedin](https://www.linkedin.com/in/sabrynna-lourenco/) - [Instagram](https://www.instagram.com/sabrynna.ln/) - limasabrynna03@gmail.com
+<br>
 Roberto Chagas - [Linkedin](https://www.linkedin.com/in/roberto-chagas/)
 
 
-Link do projeto: [https://sabrynnall.github.io/hands-on-2-sound-garden/](https://sabrynnall.github.io/hands-on-2-sound-garden/)
