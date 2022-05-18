@@ -29,15 +29,11 @@
 
 # Vizualizando
 
-  1 - Para verificar a funcionalidade da página é recomendado instalar a extensão Live Server no VsCode. <br> 2 - Abrir o arquivo index.html, clicar com o botão direito sobre a área do código e selecionar a opção "Open with Live Server"
+  O projeto está disponível no site [Sound Garden](https://sabrynnall.github.io/hands-on-2-sound-garden/).
 
 <br>
 
-<img src='./img/interface.png'>
-
-<br>
-
-Ao manipular a interface pode-se verificar inúmeras funcionalidades existentes no painel administrativo, como listar os eventos cadastrados, criar um novo evento e editar ou excluir um evento existente.
+Ao manipular a interface pode-se verificar inúmeras funcionalidades existentes no painel administrativo, como a lista dos eventos cadastrados, a possibilidade de criar um novo evento e editar ou excluir um evento já existente.
 
 <br>
 
