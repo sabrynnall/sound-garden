@@ -29,7 +29,7 @@
 
 # Vizualizando
 
-  O projeto está disponível no site [Sound Garden](https://sabrynnall.github.io/hands-on-2-sound-garden/).
+  O projeto está disponível no site [Sound Garden](https://sabrynnall.github.io/sound-garden/).
 
 <br>
 
